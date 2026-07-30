@@ -50,7 +50,7 @@ const escapeHtml = (value: string) =>
 export async function sendOrderNotification(order: NewOrder): Promise<void> {
   const resend = getResend();
   if (!resend) {
-    console.log("[preview] Resend not configured — order email skipped.");
+    console.log("[preview] Resend not configured; order email skipped.");
     return;
   }
   const total = order.items.reduce((sum, item) => sum + item.price, 0);
@@ -59,7 +59,7 @@ export async function sendOrderNotification(order: NewOrder): Promise<void> {
       (item) =>
         `<li>${escapeHtml(item.kitten_name)} (${escapeHtml(
           item.kitten_breed
-        )}) — <strong>${formatPrice(item.price)}</strong></li>`
+        )}) · <strong>${formatPrice(item.price)}</strong></li>`
     )
     .join("");
 
@@ -68,8 +68,8 @@ export async function sendOrderNotification(order: NewOrder): Promise<void> {
     `<table style="border-collapse:collapse;">
       ${row("Customer", escapeHtml(order.customer_name))}
       ${row("Email", escapeHtml(order.email))}
-      ${row("Phone", escapeHtml(order.phone) || "—")}
-      ${row("Location", escapeHtml([order.city, order.state].filter(Boolean).join(", ")) || "—")}
+      ${row("Phone", escapeHtml(order.phone) || "-")}
+      ${row("Location", escapeHtml([order.city, order.state].filter(Boolean).join(", ")) || "-")}
     </table>
     <p style="margin:16px 0 4px;color:#8a7767;">Kittens requested</p>
     <ul style="margin:0 0 16px;padding-left:20px;">${itemsHtml}</ul>
@@ -89,7 +89,7 @@ export async function sendOrderNotification(order: NewOrder): Promise<void> {
     from: fromEmail(),
     to: adminEmail(),
     replyTo: order.email,
-    subject: `New reservation from ${order.customer_name} — ${formatPrice(total)}`,
+    subject: `New reservation from ${order.customer_name} (${formatPrice(total)})`,
     html,
   });
   if (error) throw new Error(`Failed to send order email: ${error.message}`);
@@ -100,7 +100,7 @@ export async function sendOrderNotification(order: NewOrder): Promise<void> {
     await resend.emails.send({
       from: fromEmail(),
       to: order.email,
-      subject: `We received your reservation — ${site.name}`,
+      subject: `We received your reservation - ${site.name}`,
       html: wrap(
         "Thank you for your reservation! 🐱",
         `<p>Hi ${escapeHtml(order.customer_name)},</p>
@@ -112,7 +112,7 @@ export async function sendOrderNotification(order: NewOrder): Promise<void> {
       ),
     });
   } catch {
-    // ignore — sandbox senders can't reach arbitrary recipients
+    // ignore; sandbox senders can't reach arbitrary recipients
   }
 }
 
@@ -122,7 +122,7 @@ export async function sendContactNotification(
 ): Promise<void> {
   const resend = getResend();
   if (!resend) {
-    console.log("[preview] Resend not configured — contact email skipped.");
+    console.log("[preview] Resend not configured; contact email skipped.");
     return;
   }
   const html = wrap(
@@ -130,8 +130,8 @@ export async function sendContactNotification(
     `<table style="border-collapse:collapse;">
       ${row("Name", escapeHtml(contact.name))}
       ${row("Email", escapeHtml(contact.email))}
-      ${row("Phone", escapeHtml(contact.phone) || "—")}
-      ${row("Subject", escapeHtml(contact.subject) || "—")}
+      ${row("Phone", escapeHtml(contact.phone) || "-")}
+      ${row("Subject", escapeHtml(contact.subject) || "-")}
     </table>
     <p style="margin:16px 0 4px;color:#8a7767;">Message</p>
     <p style="margin:0;background:#faf5ec;border-radius:8px;padding:12px;">${escapeHtml(contact.message)}</p>`

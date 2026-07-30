@@ -63,7 +63,7 @@ export default async function AdminOrdersPage() {
                   key={item.id}
                   className="rounded-full bg-cream-100 px-4 py-1.5 text-sm font-semibold text-ink-700"
                 >
-                  {item.kitten_name} ({item.kitten_breed}) — {formatPrice(item.price)}
+                  {item.kitten_name} ({item.kitten_breed}) · {formatPrice(item.price)}
                 </li>
               ))}
             </ul>
@@ -101,7 +101,7 @@ export default async function AdminOrdersPage() {
         ))}
         {orders.length === 0 && (
           <div className="rounded-2xl border border-cream-300 bg-white p-12 text-center text-ink-400">
-            No orders yet — they'll appear here the moment a family reserves a kitten.
+            No orders yet. They'll appear here the moment a family reserves a kitten.
           </div>
         )}
       </div>

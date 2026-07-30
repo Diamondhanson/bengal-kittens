@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "How does reserving a kitten work?",
-    a: "Add your favorite kitten to your basket and submit the reservation form — it's free and non-binding. We receive it instantly and reply within 24 hours to talk next steps, answer questions, and arrange a visit or video call. Payment is only discussed after we've spoken.",
+    a: "Add your favorite kitten to your basket and submit the reservation form. It's free and non-binding. We receive it instantly and reply within 24 hours to talk next steps, answer questions, and arrange a visit or video call. Payment is only discussed after we've spoken.",
   },
   {
     q: "When can kittens go to their new homes?",
@@ -20,15 +20,15 @@ const faqs = [
   },
   {
     q: "Can we visit before deciding?",
-    a: "Absolutely — we encourage it! Visits are by appointment so mom cats aren't overwhelmed. If you're far away, we're happy to do a live video call and send weekly photo updates.",
+    a: "Absolutely, we encourage it! Visits are by appointment so mom cats aren't overwhelmed. If you're far away, we're happy to do a live video call and send weekly photo updates.",
   },
   {
     q: "Do you ship kittens?",
-    a: "We don't cargo-ship. For distant families we can arrange in-cabin flight nanny delivery or meet partway by car — costs depend on distance. Ask us and we'll figure out the kindest option together.",
+    a: "We don't cargo-ship. For distant families we can arrange in-cabin flight nanny delivery or meet partway by car. Costs depend on distance. Ask us and we'll figure out the kindest option together.",
   },
   {
     q: "Are your kittens good with children and dogs?",
-    a: "Yes — they're raised with both. Our kittens are handled daily by our kids and share the house with a very patient golden retriever, so they arrive well socialized.",
+    a: "Yes, they're raised with both. Our kittens are handled daily by our kids and share the house with a very patient golden retriever, so they arrive well socialized.",
   },
   {
     q: "What should I prepare before pickup?",
@@ -36,7 +36,7 @@ const faqs = [
   },
   {
     q: "What if it doesn't work out?",
-    a: "Our cats are never to be rehomed to shelters. If your circumstances change — at any point in the cat's life — they always have a place back with us. It's in our contract and it's a promise.",
+    a: "Our cats are never to be rehomed to shelters. If your circumstances change, at any point in the cat's life, they always have a place back with us. It's in our contract and it's a promise.",
   },
 ];
 

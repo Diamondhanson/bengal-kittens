@@ -38,7 +38,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       const raw = localStorage.getItem(STORAGE_KEY);
       if (raw) setItems(JSON.parse(raw));
     } catch {
-      // corrupted storage — start fresh
+      // corrupted storage, start fresh
     }
   }, []);
 

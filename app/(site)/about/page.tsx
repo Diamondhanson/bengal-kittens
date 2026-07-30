@@ -16,7 +16,7 @@ export default function AboutPage() {
           </h1>
           <p className="mt-6 leading-relaxed text-ink-700">
             {site.name} began with one impossibly curious Bengal kitten and a
-            promise: that every cat we raise would grow up the way she did — in
+            promise: that every cat we raise would grow up the way she did: in
             a warm home, underfoot in the kitchen, napping in sunbeams, and
             handled with love every single day.
           </p>
@@ -28,7 +28,7 @@ export default function AboutPage() {
             and the very best veterinary care.
           </p>
           <p className="mt-4 leading-relaxed text-ink-700">
-            When you adopt from us, you're not buying from a facility — you're
+            When you adopt from us, you're not buying from a facility. You're
             welcoming a kitten who already knows what it means to be part of a
             family.
           </p>
@@ -56,7 +56,7 @@ export default function AboutPage() {
           },
           {
             title: "Support for life",
-            text: "Adopters get our personal phone number. Diet questions at week two or behavior questions at year five — we're always here.",
+            text: "Adopters get our personal phone number. Diet questions at week two or behavior questions at year five, we're always here.",
           },
         ].map((item) => (
           <div key={item.title} className="rounded-2xl border border-cream-300 bg-white p-7">

@@ -98,7 +98,7 @@ export async function getKittensByIds(ids: string[]): Promise<Kitten[]> {
 }
 
 // ---------------------------------------------------------------------------
-// Kittens (admin writes — callers must verify the admin session first)
+// Kittens (admin writes; callers must verify the admin session first)
 // ---------------------------------------------------------------------------
 
 function slugify(name: string): string {

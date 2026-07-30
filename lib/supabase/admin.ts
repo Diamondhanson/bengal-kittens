@@ -2,7 +2,7 @@ import "server-only";
 import { createClient } from "@supabase/supabase-js";
 
 /**
- * Service-role client — bypasses RLS. Server-only; used by admin dashboard
+ * Service-role client; bypasses RLS. Server-only; used by admin dashboard
  * actions (kitten CRUD, storage uploads, reading orders/contacts) after the
  * caller has been verified as the admin, and for public order/contact inserts.
  */

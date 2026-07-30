@@ -27,7 +27,7 @@ export default async function KittensPage({
       </h1>
       <p className="mt-3 max-w-2xl text-ink-500 leading-relaxed">
         Every kitten below was born and raised in our home. Click through to
-        read their personality profile, health record, and photos — then
+        read their personality profile, health record, and photos, then
         reserve your favorite before someone else falls in love first.
       </p>
 
@@ -65,9 +65,9 @@ export default async function KittensPage({
             No kittens in this breed right now
           </p>
           <p className="mt-2 text-ink-500">
-            New litters arrive regularly —{" "}
+            New litters arrive regularly.{" "}
             <Link href="/contact" className="font-bold text-clay-600">
-              get in touch
+              Get in touch
             </Link>{" "}
             to join the waitlist.
           </p>

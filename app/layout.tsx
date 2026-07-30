@@ -16,8 +16,8 @@ const nunito = Nunito({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — Loving kittens, raised at home`,
-    template: `%s — ${site.name}`,
+    default: `${site.name} | Loving kittens, raised at home`,
+    template: `%s | ${site.name}`,
   },
   description:
     "Family-raised Bengal, Siamese, British Shorthair, and Maine Coon kittens looking for their forever homes. Healthy, vaccinated, vet-checked, and socialized with love.",
@@ -34,14 +34,14 @@ export const metadata: Metadata = {
     type: "website",
     url: "/",
     siteName: site.name,
-    title: `${site.name} — ${site.tagline}`,
+    title: `${site.name} | ${site.tagline}`,
     description:
       "Family-raised kittens looking for their forever homes. Healthy, vaccinated, vet-checked, and socialized with love.",
     images: [{ url: "/og.png", width: 1200, height: 630, alt: site.name }],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} — ${site.tagline}`,
+    title: `${site.name} | ${site.tagline}`,
     description:
       "Family-raised kittens looking for their forever homes. Healthy, vaccinated, vet-checked, and socialized with love.",
     images: ["/og.png"],

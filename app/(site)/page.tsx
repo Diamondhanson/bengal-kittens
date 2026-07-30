@@ -38,7 +38,7 @@ export default async function HomePage() {
     telephone: site.whatsapp,
     sameAs: [site.facebook, site.instagram],
     description:
-      "Family-raised Bengal, Siamese, British Shorthair, and Maine Coon kittens — healthy, vaccinated, and socialized with love.",
+      "Family-raised Bengal, Siamese, British Shorthair, and Maine Coon kittens: healthy, vaccinated, and socialized with love.",
   };
 
   return (
@@ -93,7 +93,7 @@ export default async function HomePage() {
               </span>
             </h1>
             <p className="animate-fade-up [animation-delay:240ms] mt-6 max-w-lg text-lg leading-relaxed text-ink-700">
-              We raise our kittens in the heart of our home — socialized with
+              We raise our kittens in the heart of our home, socialized with
               children, vet-checked, and loved from their very first breath.
               Find the one who belongs on your sofa.
             </p>
@@ -164,7 +164,7 @@ export default async function HomePage() {
             {
               icon: "💛",
               title: "Socialized with love",
-              text: "Raised underfoot with kids and other pets — confident, cuddly companions.",
+              text: "Raised underfoot with kids and other pets, they grow into confident, cuddly companions.",
             },
           ].map((item, i) => (
             <Reveal key={item.title} delay={i * 120}>
@@ -230,7 +230,7 @@ export default async function HomePage() {
               {
                 step: "2",
                 title: "Send a reservation",
-                text: "Add them to your basket and send us your details — no payment online. We'll receive it instantly.",
+                text: "Add them to your basket and send us your details. There's no payment online, and we receive it instantly.",
               },
               {
                 step: "3",
@@ -263,7 +263,7 @@ export default async function HomePage() {
             can tell these kittens grow up in a real home full of love.”
           </blockquote>
           <p className="mt-4 text-sm font-bold uppercase tracking-wide text-ink-400">
-            — The Ramirez family
+            The Ramirez family
           </p>
         </Reveal>
       </section>
@@ -278,7 +278,7 @@ export default async function HomePage() {
               Ready to meet your new best friend?
             </h2>
             <p className="mx-auto mt-3 max-w-xl text-clay-100">
-              Come say hello — or ask us anything about our kittens, visits, and
+              Come say hello, or ask us anything about our kittens, visits, and
               how adoption works. We love to chat. {site.hours}.
             </p>
             <div className="mt-7 flex flex-wrap justify-center gap-4">

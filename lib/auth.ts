@@ -42,7 +42,7 @@ export async function getAdminSession(): Promise<AdminSession> {
   return { isAdmin, email: isAdmin ? "preview@localhost" : null, mode: "preview" };
 }
 
-/** Guard for admin server actions — throws unless the caller is the admin. */
+/** Guard for admin server actions; throws unless the caller is the admin. */
 export async function requireAdmin(): Promise<AdminSession> {
   const session = await getAdminSession();
   if (!session.isAdmin) throw new Error("Not authorized");

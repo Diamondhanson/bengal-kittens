@@ -21,10 +21,10 @@ export async function generateMetadata({
   const kitten = await getKittenBySlug(slug);
   if (!kitten) return { title: "Kitten not found" };
 
-  const title = `${kitten.name} — ${kitten.breed} kitten`;
+  const title = `${kitten.name} the ${kitten.breed} kitten`;
   const description = `${kitten.name} is a ${formatAge(kitten.date_of_birth)} ${
     kitten.breed
-  } kitten (${kitten.color}) looking for a loving home. ${formatPrice(kitten.price)} — vaccinated, vet-checked, family-raised.`;
+  } kitten (${kitten.color}) looking for a loving home. ${formatPrice(kitten.price)}, vaccinated, vet-checked, and family-raised.`;
 
   return {
     title,
@@ -67,7 +67,7 @@ export default async function KittenDetailPage({
   const productJsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
-    name: `${kitten.name} — ${kitten.breed} kitten`,
+    name: `${kitten.name} the ${kitten.breed} kitten`,
     description: kitten.description,
     image: kitten.images,
     brand: { "@type": "Brand", name: site.name },
@@ -151,7 +151,7 @@ export default async function KittenDetailPage({
             </Link>
           </div>
           <p className="mt-4 text-sm text-ink-400">
-            Reserving is free and non-binding — we'll contact you within 24
+            Reserving is free and non-binding. We'll contact you within 24
             hours to arrange everything personally.
           </p>
         </div>

@@ -34,7 +34,7 @@ export default function HealthGuaranteePage() {
             <li>A reservation holds your kitten once we've spoken and a deposit is arranged; deposits are applied to the adoption fee.</li>
             <li>All kittens are sold as loved pets. Breeding rights are available only by separate agreement.</li>
             <li>Kittens must live indoors (or with safe supervised outdoor access such as a catio).</li>
-            <li>If you can ever no longer keep your cat — at any age, for any reason — they come back to us. Our cats never go to shelters.</li>
+            <li>If you can ever no longer keep your cat, at any age and for any reason, they come back to us. Our cats never go to shelters.</li>
           </ul>
         </section>
 

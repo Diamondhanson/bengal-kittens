@@ -68,7 +68,7 @@ export default async function AdminOverviewPage() {
                 <div className="min-w-0">
                   <p className="font-semibold text-ink-900">{order.customer_name}</p>
                   <p className="truncate text-sm text-ink-400">
-                    {(order.items ?? []).map((i) => i.kitten_name).join(", ") || "—"}
+                    {(order.items ?? []).map((i) => i.kitten_name).join(", ") || "-"}
                   </p>
                 </div>
                 <div className="text-right shrink-0">

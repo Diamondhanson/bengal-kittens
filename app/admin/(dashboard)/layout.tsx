@@ -74,7 +74,7 @@ export default async function AdminLayout({
       <div className="flex-1 min-w-0">
         {session.mode === "preview" && (
           <div className="bg-clay-100 px-6 py-3 text-sm font-semibold text-clay-700">
-            Preview mode — Supabase isn't connected yet, so you're seeing
+            Preview mode: Supabase isn't connected yet, so you're seeing
             sample data and saving is disabled. Follow SETUP.md to plug in your
             keys.
           </div>

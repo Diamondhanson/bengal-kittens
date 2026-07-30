@@ -40,7 +40,7 @@ export const sampleKittens: Kitten[] = [
     date_of_birth: "2026-04-14",
     price: 2400,
     description:
-      "Simba is the confident leader of his litter — bold, bright, and endlessly entertaining. He fetches toy mice, follows you from room to room, and greets visitors at the door. His large rosettes and warm golden coat turn heads everywhere.",
+      "Simba is the confident leader of his litter: bold, bright, and endlessly entertaining. He fetches toy mice, follows you from room to room, and greets visitors at the door. His large rosettes and warm golden coat turn heads everywhere.",
     temperament: "Confident, energetic, loyal",
     vaccinated: true,
     litter_trained: true,
@@ -61,7 +61,7 @@ export const sampleKittens: Kitten[] = [
     date_of_birth: "2026-05-02",
     price: 2500,
     description:
-      "Cleo is a rare silver Bengal with striking contrast and emerald eyes. She is gentle and observant — the kitten who watches quietly, then surprises you with a burst of playful zoomies. She adores water play and interactive puzzle toys.",
+      "Cleo is a rare silver Bengal with striking contrast and emerald eyes. She is gentle and observant, the kitten who watches quietly, then surprises you with a burst of playful zoomies. She adores water play and interactive puzzle toys.",
     temperament: "Gentle, intelligent, curious",
     vaccinated: true,
     litter_trained: true,
@@ -82,7 +82,7 @@ export const sampleKittens: Kitten[] = [
     date_of_birth: "2026-05-02",
     price: 1950,
     description:
-      "Milo's flowing marbled pattern looks like polished wood grain — every swirl unique. He is the cuddler of the litter and purrs the moment you pick him up. Perfect for a family that wants a Bengal's beauty with a lap cat's heart.",
+      "Milo's flowing marbled pattern looks like polished wood grain, every swirl unique. He is the cuddler of the litter and purrs the moment you pick him up. Perfect for a family that wants a Bengal's beauty with a lap cat's heart.",
     temperament: "Cuddly, easy-going, social",
     vaccinated: true,
     litter_trained: true,
@@ -124,7 +124,7 @@ export const sampleKittens: Kitten[] = [
     date_of_birth: "2026-04-20",
     price: 1500,
     description:
-      "Oliver is a plush blue British Shorthair teddy bear with round copper eyes. Calm and unflappable, he is the ideal companion for a quieter home — content to lounge nearby and accept chin scratches with quiet dignity.",
+      "Oliver is a plush blue British Shorthair teddy bear with round copper eyes. Calm and unflappable, he is the ideal companion for a quieter home, content to lounge nearby and accept chin scratches with quiet dignity.",
     temperament: "Calm, patient, independent",
     vaccinated: true,
     litter_trained: true,
@@ -166,7 +166,7 @@ export const sampleKittens: Kitten[] = [
     date_of_birth: "2026-05-10",
     price: 2100,
     description:
-      "Leo is a dramatic charcoal Bengal with a dark mask and cape over shimmering spots. He is athletic and clever — already opening treat puzzles designed for adult cats — and melts into a purring puddle at bedtime.",
+      "Leo is a dramatic charcoal Bengal with a dark mask and cape over shimmering spots. He is athletic and clever, already opening treat puzzles designed for adult cats, and melts into a purring puddle at bedtime.",
     temperament: "Athletic, clever, affectionate",
     vaccinated: true,
     litter_trained: true,

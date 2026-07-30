@@ -35,7 +35,7 @@ export async function submitOrder(
     return { error: "That email address doesn't look right." };
   }
   if (kittenIds.length === 0) {
-    return { error: "Your basket is empty — pick a kitten first!" };
+    return { error: "Your basket is empty. Pick a kitten first!" };
   }
 
   // Look the kittens up server-side so prices/names can't be tampered with.

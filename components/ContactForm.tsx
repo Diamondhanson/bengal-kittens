@@ -21,7 +21,7 @@ export function ContactForm() {
           Message sent!
         </h2>
         <p className="mt-2 text-ink-500">
-          Thank you for reaching out — we'll get back to you within 24 hours.
+          Thank you for reaching out. We'll get back to you within 24 hours.
         </p>
       </div>
     );

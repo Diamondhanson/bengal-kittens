@@ -1,5 +1,5 @@
 -- ============================================================================
--- Bengal Kittens — full database setup
+-- Bengal Kittens, full database setup
 -- Run this ONCE in your Supabase project: Dashboard → SQL Editor → New query,
 -- paste everything, press "Run". It creates all tables, security policies,
 -- the photo storage bucket, and the 8 sample kittens.
@@ -114,7 +114,7 @@ values
   ),
   (
     '00000000-0000-4000-8000-000000000002', 'simba-bengal', 'Simba', 'Bengal', 'male', 'Golden spotted', '2026-04-14', 2400,
-    'Simba is the confident leader of his litter — bold, bright, and endlessly entertaining. He fetches toy mice, follows you from room to room, and greets visitors at the door. His large rosettes and warm golden coat turn heads everywhere.',
+    'Simba is the confident leader of his litter: bold, bright, and endlessly entertaining. He fetches toy mice, follows you from room to room, and greets visitors at the door. His large rosettes and warm golden coat turn heads everywhere.',
     'Confident, energetic, loyal', true, true,
     'Vaccinations up to date, dewormed, vet-checked. Parents genetically screened; written health guarantee included.',
     'available', true,
@@ -123,7 +123,7 @@ values
   ),
   (
     '00000000-0000-4000-8000-000000000003', 'cleo-bengal', 'Cleo', 'Bengal', 'female', 'Silver rosetted', '2026-05-02', 2500,
-    'Cleo is a rare silver Bengal with striking contrast and emerald eyes. She is gentle and observant — the kitten who watches quietly, then surprises you with a burst of playful zoomies. She adores water play and interactive puzzle toys.',
+    'Cleo is a rare silver Bengal with striking contrast and emerald eyes. She is gentle and observant, the kitten who watches quietly, then surprises you with a burst of playful zoomies. She adores water play and interactive puzzle toys.',
     'Gentle, intelligent, curious', true, true,
     'Age-appropriate vaccinations complete, dewormed, microchipped before pickup. Health guarantee included.',
     'available', true,
@@ -132,7 +132,7 @@ values
   ),
   (
     '00000000-0000-4000-8000-000000000004', 'milo-bengal', 'Milo', 'Bengal', 'male', 'Brown marbled', '2026-05-02', 1950,
-    'Milo''s flowing marbled pattern looks like polished wood grain — every swirl unique. He is the cuddler of the litter and purrs the moment you pick him up. Perfect for a family that wants a Bengal''s beauty with a lap cat''s heart.',
+    'Milo''s flowing marbled pattern looks like polished wood grain, every swirl unique. He is the cuddler of the litter and purrs the moment you pick him up. Perfect for a family that wants a Bengal''s beauty with a lap cat''s heart.',
     'Cuddly, easy-going, social', true, true,
     'Vaccinated and dewormed on schedule, vet-checked. Raised with dogs and children.',
     'reserved', false,
@@ -150,7 +150,7 @@ values
   ),
   (
     '00000000-0000-4000-8000-000000000006', 'oliver-british-shorthair', 'Oliver', 'British Shorthair', 'male', 'Blue', '2026-04-20', 1500,
-    'Oliver is a plush blue British Shorthair teddy bear with round copper eyes. Calm and unflappable, he is the ideal companion for a quieter home — content to lounge nearby and accept chin scratches with quiet dignity.',
+    'Oliver is a plush blue British Shorthair teddy bear with round copper eyes. Calm and unflappable, he is the ideal companion for a quieter home, content to lounge nearby and accept chin scratches with quiet dignity.',
     'Calm, patient, independent', true, true,
     'Fully vaccinated for age, dewormed, vet-checked. Parents GCCF registered.',
     'available', false,
@@ -168,7 +168,7 @@ values
   ),
   (
     '00000000-0000-4000-8000-000000000008', 'leo-bengal', 'Leo', 'Bengal', 'male', 'Charcoal spotted', '2026-05-10', 2100,
-    'Leo is a dramatic charcoal Bengal with a dark mask and cape over shimmering spots. He is athletic and clever — already opening treat puzzles designed for adult cats — and melts into a purring puddle at bedtime.',
+    'Leo is a dramatic charcoal Bengal with a dark mask and cape over shimmering spots. He is athletic and clever, already opening treat puzzles designed for adult cats, and melts into a purring puddle at bedtime.',
     'Athletic, clever, affectionate', true, true,
     'Age-appropriate vaccinations complete, dewormed, vet-checked. Health guarantee included.',
     'available', false,

@@ -72,7 +72,7 @@ export function ReserveForm() {
             <label htmlFor="city" className="mb-1.5 block text-sm font-bold text-ink-700">
               City
             </label>
-            <input id="city" name="city" className={inputClass} placeholder="Portland" />
+            <input id="city" name="city" className={inputClass} placeholder="Your city" />
           </div>
           <div>
             <label htmlFor="state" className="mb-1.5 block text-sm font-bold text-ink-700">
@@ -104,7 +104,7 @@ export function ReserveForm() {
           Send reservation request
         </SubmitButton>
         <p className="text-sm text-ink-400">
-          Free and non-binding. No payment online — we'll contact you within 24
+          Free and non-binding, with no payment online. We'll contact you within 24
           hours.
         </p>
       </form>

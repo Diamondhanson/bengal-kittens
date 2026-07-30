@@ -48,7 +48,6 @@ export function Footer() {
                 {site.email}
               </a>
             </li>
-            <li>{site.address}</li>
             <li>{site.hours}</li>
           </ul>
         </div>

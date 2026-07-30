@@ -15,8 +15,8 @@ export default function ContactPage() {
             Say hello 👋
           </h1>
           <p className="mt-4 leading-relaxed text-ink-500">
-            Questions about a kitten, visits, upcoming litters, or anything
-            else — send us a note and we'll reply within 24 hours.
+            Questions about a kitten, visits, or upcoming litters? Send us a
+            note and we'll reply within 24 hours.
           </p>
           <dl className="mt-8 space-y-5 text-sm">
             <div>
@@ -49,8 +49,10 @@ export default function ContactPage() {
             </div>
             <div>
               <dt className="font-bold uppercase tracking-wide text-ink-400">Visits by appointment</dt>
-              <dd className="mt-1 text-ink-700">{site.address}</dd>
-              <dd className="text-ink-700">{site.hours}</dd>
+              <dd className="mt-1 text-ink-700">{site.hours}</dd>
+              <dd className="text-ink-700">
+                Location shared when you book a visit.
+              </dd>
             </div>
             <div>
               <dt className="font-bold uppercase tracking-wide text-ink-400">Find us on</dt>

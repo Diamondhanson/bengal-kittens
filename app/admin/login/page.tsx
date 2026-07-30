@@ -30,7 +30,7 @@ export default async function AdminLoginPage() {
             {site.name} dashboard
           </h1>
           <p className="mt-2 text-sm text-ink-500">
-            Owner access only — sign in to manage kittens, orders, and messages.
+            Owner access only. Sign in to manage kittens, orders, and messages.
           </p>
         </div>
         <div className="mt-8 rounded-3xl border border-cream-300 bg-white p-8 shadow-sm">

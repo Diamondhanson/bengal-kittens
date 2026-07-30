@@ -113,7 +113,7 @@ export default async function AdminKittensPage() {
             {kittens.length === 0 && (
               <tr>
                 <td colSpan={6} className="px-5 py-10 text-center text-ink-400">
-                  No kittens yet — add your first one!
+                  No kittens yet. Add your first one!
                 </td>
               </tr>
             )}

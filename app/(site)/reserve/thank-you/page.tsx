@@ -16,7 +16,7 @@ export default function ThankYouPage() {
         Reservation received!
       </h1>
       <p className="mt-4 text-lg leading-relaxed text-ink-500">
-        Thank you — your request is in our inbox. We'll get back to you within
+        Thank you! Your request is in our inbox. We'll get back to you within
         24 hours to arrange a visit or video call and talk through the next
         steps. Keep an eye on your email (and your spam folder, just in case).
       </p>

@@ -22,7 +22,7 @@ export default function CartPage() {
             Your basket is empty
           </p>
           <p className="mt-2 text-ink-500">
-            Go meet the kittens — one of them is waiting for you.
+            Go meet the kittens. One of them is waiting for you.
           </p>
           <Link
             href="/kittens"
@@ -83,7 +83,7 @@ export default function CartPage() {
             </Link>
           </div>
           <p className="mt-4 text-sm text-ink-400">
-            No payment is taken online. Reserving sends us your request — we'll
+            No payment is taken online. Reserving sends us your request, and we'll
             reply within 24 hours to arrange everything personally.
           </p>
         </>
