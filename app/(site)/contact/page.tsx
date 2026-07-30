@@ -20,17 +20,66 @@ export default function ContactPage() {
           </p>
           <dl className="mt-8 space-y-5 text-sm">
             <div>
-              <dt className="font-bold uppercase tracking-wide text-ink-400">Phone</dt>
-              <dd className="mt-1 text-ink-700">{site.phone}</dd>
+              <dt className="font-bold uppercase tracking-wide text-ink-400">WhatsApp</dt>
+              <dd className="mt-1">
+                <a
+                  href={site.whatsappLink}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-semibold text-moss-600 hover:text-moss-700"
+                >
+                  💬 {site.whatsapp}
+                </a>
+              </dd>
             </div>
             <div>
               <dt className="font-bold uppercase tracking-wide text-ink-400">Email</dt>
-              <dd className="mt-1 text-ink-700">{site.email}</dd>
+              <dd className="mt-1">
+                <a
+                  href={`mailto:${site.email}`}
+                  className="font-semibold text-clay-600 hover:text-clay-700"
+                >
+                  {site.email}
+                </a>
+              </dd>
+            </div>
+            <div>
+              <dt className="font-bold uppercase tracking-wide text-ink-400">Phone</dt>
+              <dd className="mt-1 text-ink-700">{site.phone}</dd>
             </div>
             <div>
               <dt className="font-bold uppercase tracking-wide text-ink-400">Visits by appointment</dt>
               <dd className="mt-1 text-ink-700">{site.address}</dd>
               <dd className="text-ink-700">{site.hours}</dd>
+            </div>
+            <div>
+              <dt className="font-bold uppercase tracking-wide text-ink-400">Find us on</dt>
+              <dd className="mt-1 flex flex-wrap gap-4">
+                <a
+                  href={site.facebook}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-semibold text-clay-600 hover:text-clay-700"
+                >
+                  Facebook
+                </a>
+                <a
+                  href={site.instagram}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-semibold text-clay-600 hover:text-clay-700"
+                >
+                  Instagram
+                </a>
+                <a
+                  href={site.whatsappLink}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-semibold text-clay-600 hover:text-clay-700"
+                >
+                  WhatsApp
+                </a>
+              </dd>
             </div>
           </dl>
         </div>

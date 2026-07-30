@@ -30,8 +30,16 @@ export function Footer() {
             Contact
           </p>
           <ul className="mt-3 space-y-2 text-sm text-ink-500">
-            <li>{site.phone}</li>
-            <li>{site.email}</li>
+            <li>
+              <a className="hover:text-clay-600" href={site.whatsappLink} target="_blank" rel="noreferrer">
+                WhatsApp: {site.whatsapp}
+              </a>
+            </li>
+            <li>
+              <a className="hover:text-clay-600" href={`mailto:${site.email}`}>
+                {site.email}
+              </a>
+            </li>
             <li>{site.address}</li>
             <li>{site.hours}</li>
           </ul>
@@ -41,8 +49,9 @@ export function Footer() {
             Follow along
           </p>
           <ul className="mt-3 space-y-2 text-sm">
-            <li><a className="text-ink-500 hover:text-clay-600" href={site.instagram} target="_blank" rel="noreferrer">Instagram</a></li>
             <li><a className="text-ink-500 hover:text-clay-600" href={site.facebook} target="_blank" rel="noreferrer">Facebook</a></li>
+            <li><a className="text-ink-500 hover:text-clay-600" href={site.whatsappLink} target="_blank" rel="noreferrer">WhatsApp</a></li>
+            <li><a className="text-ink-500 hover:text-clay-600" href={site.instagram} target="_blank" rel="noreferrer">Instagram</a></li>
           </ul>
         </div>
       </div>
