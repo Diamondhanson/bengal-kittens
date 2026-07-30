@@ -1,26 +1,136 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  /* Warm, calm palette: cream backgrounds, clay accents, moss greens, cocoa text */
+  --color-cream-50: #fdfbf7;
+  --color-cream-100: #faf5ec;
+  --color-cream-200: #f3eadb;
+  --color-cream-300: #eaddc6;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* Clay accent — saturation raised ~23% over the original palette */
+  --color-clay-100: hsl(23 80% 92%);
+  --color-clay-200: hsl(22 74% 85%);
+  --color-clay-400: hsl(20 69% 58%);
+  --color-clay-500: hsl(17 61% 54%);
+  --color-clay-600: hsl(17 59% 45%);
+  --color-clay-700: hsl(16 60% 36%);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-moss-100: #eef0e9;
+  --color-moss-200: #dde2d3;
+  --color-moss-500: #7a8b6f;
+  --color-moss-600: #64755a;
+  --color-moss-700: #4f5e47;
+
+  --color-ink-300: #b3a494;
+  --color-ink-400: #8a7767;
+  --color-ink-500: #6b5849;
+  --color-ink-700: #4d3d30;
+  --color-ink-900: #35281e;
+
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-sans: var(--font-nunito), ui-sans-serif, system-ui, sans-serif;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-cream-50);
+  color: var(--color-ink-900);
+  font-family: var(--font-sans);
+}
+
+/* ── Motion ─────────────────────────────────────────────────────────────── */
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(var(--float-rotate, 0deg));
+  }
+  50% {
+    transform: translateY(-14px) rotate(var(--float-rotate, 0deg));
+  }
+}
+
+@keyframes slow-zoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.09);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.7s ease-out both;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out both;
+}
+
+.animate-page-in {
+  animation: fade-up 0.4s ease-out both;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-slow-zoom {
+  animation: slow-zoom 9s ease-out both;
+}
+
+/* Crossfading hero slides */
+.hero-slide {
+  transition: opacity 1.4s ease-in-out;
+}
+
+/* Scroll-reveal (toggled by the <Reveal> component) */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s ease-out,
+    transform 0.7s ease-out;
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up,
+  .animate-fade-in,
+  .animate-page-in,
+  .animate-float,
+  .animate-slow-zoom {
+    animation: none !important;
+  }
+  .hero-slide {
+    transition: none;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
