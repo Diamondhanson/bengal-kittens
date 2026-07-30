@@ -186,16 +186,8 @@ export async function createOrder(order: NewOrder): Promise<string | null> {
   if (itemsError)
     throw new Error(`Failed to save order items: ${itemsError.message}`);
 
-  // Mark the requested kittens as reserved so they can't be double-booked.
-  await supabase
-    .from("kittens")
-    .update({ status: "reserved" })
-    .in(
-      "id",
-      order.items.map((item) => item.kitten_id)
-    )
-    .eq("status", "available");
-
+  // Kitten status is NOT changed here on purpose: the owner decides when a
+  // kitten becomes "reserved" or "sold" from the dashboard.
   return data.id as string;
 }
 

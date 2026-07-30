@@ -52,6 +52,20 @@ export default async function AdminLayout({
               {item.label}
             </Link>
           ))}
+          <Link
+            href="/"
+            className="lg:hidden flex items-center gap-3 whitespace-nowrap rounded-xl px-4 py-2.5 text-sm font-semibold text-ink-400 transition-colors hover:bg-cream-100"
+          >
+            🌐 Website
+          </Link>
+          <form action={logout} className="lg:hidden shrink-0">
+            <button
+              type="submit"
+              className="flex items-center gap-3 whitespace-nowrap rounded-xl px-4 py-2.5 text-sm font-semibold text-ink-400 transition-colors hover:bg-cream-100"
+            >
+              👋 Sign out
+            </button>
+          </form>
         </nav>
         <div className="hidden lg:block px-3 mt-6 space-y-1 pb-6">
           <Link

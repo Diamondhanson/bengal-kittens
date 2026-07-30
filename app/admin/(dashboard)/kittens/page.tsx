@@ -23,7 +23,96 @@ export default async function AdminKittensPage() {
         </Link>
       </div>
 
-      <div className="mt-8 overflow-x-auto rounded-2xl border border-cream-300 bg-white">
+      {/* Phone: card list */}
+      <div className="mt-8 space-y-4 md:hidden">
+        {kittens.map((kitten) => (
+          <article
+            key={kitten.id}
+            className="rounded-2xl border border-cream-300 bg-white p-4"
+          >
+            <div className="flex items-center gap-3">
+              <div className="relative h-16 w-20 shrink-0 overflow-hidden rounded-xl bg-cream-200">
+                {kitten.images[0] && (
+                  <Image
+                    src={kitten.images[0]}
+                    alt={kitten.name}
+                    fill
+                    sizes="80px"
+                    className="object-cover"
+                  />
+                )}
+              </div>
+              <div className="min-w-0 flex-1">
+                <div className="flex items-center justify-between gap-2">
+                  <p className="font-display text-lg font-semibold text-ink-900">
+                    {kitten.name}
+                  </p>
+                  <p className="font-bold text-clay-600">{formatPrice(kitten.price)}</p>
+                </div>
+                <p className="truncate text-xs text-ink-400">
+                  {kitten.breed} · {kitten.gender === "female" ? "Female" : "Male"} ·{" "}
+                  {formatAge(kitten.date_of_birth)}
+                </p>
+                <div className="mt-1">
+                  <StatusBadge status={kitten.status} />
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-3 flex flex-wrap items-center justify-between gap-3 border-t border-cream-200 pt-3">
+              <form action={setKittenStatus} className="flex items-center gap-2">
+                <input type="hidden" name="id" value={kitten.id} />
+                <select
+                  name="status"
+                  defaultValue={kitten.status}
+                  className="rounded-lg border border-cream-300 bg-white px-2 py-1.5 text-xs"
+                >
+                  <option value="available">available</option>
+                  <option value="reserved">reserved</option>
+                  <option value="sold">sold</option>
+                </select>
+                <button
+                  type="submit"
+                  className="rounded-lg bg-cream-100 px-3 py-1.5 text-xs font-bold text-ink-500 hover:bg-cream-200"
+                >
+                  Set
+                </button>
+              </form>
+              <div className="flex items-center gap-2">
+                <Link
+                  href={`/kittens/${kitten.slug}`}
+                  className="rounded-lg px-3 py-1.5 text-xs font-bold text-ink-400 hover:bg-cream-100"
+                >
+                  View
+                </Link>
+                <Link
+                  href={`/admin/kittens/${kitten.id}/edit`}
+                  className="rounded-lg bg-moss-100 px-3 py-1.5 text-xs font-bold text-moss-700 hover:bg-moss-200"
+                >
+                  Edit
+                </Link>
+                <form action={removeKitten}>
+                  <input type="hidden" name="id" value={kitten.id} />
+                  <button
+                    type="submit"
+                    className="rounded-lg bg-clay-100 px-3 py-1.5 text-xs font-bold text-clay-700 hover:bg-clay-200"
+                  >
+                    Delete
+                  </button>
+                </form>
+              </div>
+            </div>
+          </article>
+        ))}
+        {kittens.length === 0 && (
+          <div className="rounded-2xl border border-cream-300 bg-white p-10 text-center text-ink-400">
+            No kittens yet. Add your first one!
+          </div>
+        )}
+      </div>
+
+      {/* Tablet/desktop: table */}
+      <div className="mt-8 hidden md:block overflow-x-auto rounded-2xl border border-cream-300 bg-white">
         <table className="w-full min-w-[720px] text-left text-sm">
           <thead className="border-b border-cream-200 text-xs font-bold uppercase tracking-wide text-ink-400">
             <tr>

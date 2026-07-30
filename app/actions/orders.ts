@@ -1,7 +1,6 @@
 "use server";
 
 import { redirect } from "next/navigation";
-import { revalidatePath } from "next/cache";
 import { createOrder, getKittensByIds } from "@/lib/data";
 import { sendOrderNotification } from "@/lib/email";
 
@@ -81,6 +80,5 @@ export async function submitOrder(
     };
   }
 
-  revalidatePath("/", "layout");
   redirect("/reserve/thank-you");
 }
