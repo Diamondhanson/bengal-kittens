@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { LoginForm } from "@/components/admin/LoginForm";
@@ -18,7 +19,13 @@ export default async function AdminLoginPage() {
     <div className="flex flex-1 items-center justify-center px-4 py-20">
       <div className="w-full max-w-md">
         <div className="text-center">
-          <p className="text-4xl">🐾</p>
+          <Image
+            src="/logo.png"
+            alt=""
+            width={72}
+            height={72}
+            className="mx-auto h-18 w-18"
+          />
           <h1 className="mt-3 font-display text-3xl font-semibold text-ink-900">
             {site.name} dashboard
           </h1>

@@ -5,6 +5,7 @@
 export const site = {
   name: "Bengal Kittens",
   tagline: "Loving kittens, raised at home",
+  url: "https://bengalkittenhaven.com",
   currency: "USD",
   phone: "(555) 123-4567",
   whatsapp: "+1 (332) 318-4580",

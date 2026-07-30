@@ -14,12 +14,42 @@ const nunito = Nunito({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(site.url),
   title: {
     default: `${site.name} — Loving kittens, raised at home`,
     template: `%s — ${site.name}`,
   },
   description:
-    "Family-raised kittens looking for their forever homes. Healthy, vaccinated, and socialized with love.",
+    "Family-raised Bengal, Siamese, British Shorthair, and Maine Coon kittens looking for their forever homes. Healthy, vaccinated, vet-checked, and socialized with love.",
+  keywords: [
+    "Bengal kittens for sale",
+    "kittens for adoption",
+    "family-raised kittens",
+    "Bengal cattery",
+    "Siamese kittens",
+    "Maine Coon kittens",
+    "British Shorthair kittens",
+  ],
+  openGraph: {
+    type: "website",
+    url: "/",
+    siteName: site.name,
+    title: `${site.name} — ${site.tagline}`,
+    description:
+      "Family-raised kittens looking for their forever homes. Healthy, vaccinated, vet-checked, and socialized with love.",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: site.name }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${site.name} — ${site.tagline}`,
+    description:
+      "Family-raised kittens looking for their forever homes. Healthy, vaccinated, vet-checked, and socialized with love.",
+    images: ["/og.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({

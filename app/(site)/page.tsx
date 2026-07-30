@@ -6,7 +6,9 @@ import { Reveal } from "@/components/Reveal";
 import { getKittens } from "@/lib/data";
 import { site } from "@/lib/site";
 
-export const dynamic = "force-dynamic";
+// Served from cache and refreshed in the background; admin edits bust it
+// instantly via revalidatePath.
+export const revalidate = 300;
 
 const heroImages = [
   "https://images.unsplash.com/photo-1543852786-1cf6624b9987?w=1920&q=75&fit=crop",
@@ -25,8 +27,26 @@ export default async function HomePage() {
   const featured = kittens.filter((k) => k.featured && k.status === "available");
   const spotlight = (featured.length > 0 ? featured : kittens).slice(0, 3);
 
+  const businessJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "PetStore",
+    name: site.name,
+    url: site.url,
+    logo: `${site.url}/logo.png`,
+    image: `${site.url}/og.png`,
+    email: site.email,
+    telephone: site.whatsapp,
+    sameAs: [site.facebook, site.instagram],
+    description:
+      "Family-raised Bengal, Siamese, British Shorthair, and Maine Coon kittens — healthy, vaccinated, and socialized with love.",
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(businessJsonLd) }}
+      />
       {/* Hero */}
       <section className="relative overflow-hidden">
         <HeroSlideshow images={heroImages} />

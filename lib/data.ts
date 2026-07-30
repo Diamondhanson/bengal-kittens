@@ -1,6 +1,6 @@
 import "server-only";
+import { createClient } from "@supabase/supabase-js";
 import { createSupabaseAdminClient } from "./supabase/admin";
-import { createSupabaseServerClient } from "./supabase/server";
 import { isSupabaseConfigured } from "./supabase/config";
 import { sampleKittens } from "./sample-kittens";
 import { sampleContacts, sampleOrders } from "./sample-admin";
@@ -14,15 +14,24 @@ import type {
 } from "./types";
 
 // ---------------------------------------------------------------------------
-// Kittens (public reads use the anon client; RLS allows read-only access)
+// Kittens (public reads use a cookie-less anon client so pages stay cacheable;
+// RLS allows read-only access)
 // ---------------------------------------------------------------------------
+
+function createAnonClient() {
+  return createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    { auth: { persistSession: false, autoRefreshToken: false } }
+  );
+}
 
 export async function getKittens(breed?: string): Promise<Kitten[]> {
   if (!isSupabaseConfigured()) {
     const all = sampleKittens;
     return breed ? all.filter((k) => k.breed === breed) : all;
   }
-  const supabase = await createSupabaseServerClient();
+  const supabase = createAnonClient();
   let query = supabase
     .from("kittens")
     .select("*")
@@ -50,7 +59,7 @@ export async function getKittenBySlug(slug: string): Promise<Kitten | null> {
   if (!isSupabaseConfigured()) {
     return sampleKittens.find((k) => k.slug === slug) ?? null;
   }
-  const supabase = await createSupabaseServerClient();
+  const supabase = createAnonClient();
   const { data, error } = await supabase
     .from("kittens")
     .select("*")
@@ -64,7 +73,7 @@ export async function getKittenById(id: string): Promise<Kitten | null> {
   if (!isSupabaseConfigured()) {
     return sampleKittens.find((k) => k.id === id) ?? null;
   }
-  const supabase = await createSupabaseServerClient();
+  const supabase = createAnonClient();
   const { data, error } = await supabase
     .from("kittens")
     .select("*")
@@ -79,7 +88,7 @@ export async function getKittensByIds(ids: string[]): Promise<Kitten[]> {
   if (!isSupabaseConfigured()) {
     return sampleKittens.filter((k) => ids.includes(k.id));
   }
-  const supabase = await createSupabaseServerClient();
+  const supabase = createAnonClient();
   const { data, error } = await supabase
     .from("kittens")
     .select("*")

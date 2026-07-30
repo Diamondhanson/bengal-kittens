@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { getAdminSession } from "@/lib/auth";
@@ -25,7 +26,13 @@ export default async function AdminLayout({
       <aside className="lg:w-64 shrink-0 border-b lg:border-b-0 lg:border-r border-cream-300 bg-white">
         <div className="flex items-center justify-between gap-3 p-5 lg:block">
           <Link href="/admin" className="flex items-center gap-2">
-            <span className="text-xl">🐾</span>
+            <Image
+              src="/logo.png"
+              alt=""
+              width={32}
+              height={32}
+              className="h-8 w-8 rounded-full shadow-sm ring-1 ring-cream-300"
+            />
             <span className="font-display text-lg font-semibold text-ink-900">
               {site.name}
             </span>

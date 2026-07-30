@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/lib/site";
 
@@ -6,8 +7,15 @@ export function Footer() {
     <footer className="mt-auto border-t border-cream-300 bg-cream-100">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 py-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <p className="font-display text-lg font-semibold text-ink-900">
-            🐾 {site.name}
+          <p className="flex items-center gap-2.5 font-display text-lg font-semibold text-ink-900">
+            <Image
+              src="/logo.png"
+              alt=""
+              width={36}
+              height={36}
+              className="h-9 w-9 rounded-full shadow-sm ring-1 ring-cream-300"
+            />
+            {site.name}
           </p>
           <p className="mt-3 text-sm text-ink-500 leading-relaxed">
             Family-raised kittens, socialized from day one and ready to bring

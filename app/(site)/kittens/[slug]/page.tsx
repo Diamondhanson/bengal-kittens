@@ -1,13 +1,49 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { AddToCartButton } from "@/components/AddToCartButton";
 import { Gallery } from "@/components/Gallery";
 import { StatusBadge } from "@/components/StatusBadge";
 import { getKittenBySlug } from "@/lib/data";
-import { formatPrice } from "@/lib/site";
+import { formatPrice, site } from "@/lib/site";
 import { formatAge, formatDate } from "@/lib/utils";
 
-export const dynamic = "force-dynamic";
+// Served from cache and refreshed in the background; admin edits bust it
+// instantly via revalidatePath.
+export const revalidate = 300;
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const kitten = await getKittenBySlug(slug);
+  if (!kitten) return { title: "Kitten not found" };
+
+  const title = `${kitten.name} — ${kitten.breed} kitten`;
+  const description = `${kitten.name} is a ${formatAge(kitten.date_of_birth)} ${
+    kitten.breed
+  } kitten (${kitten.color}) looking for a loving home. ${formatPrice(kitten.price)} — vaccinated, vet-checked, family-raised.`;
+
+  return {
+    title,
+    description,
+    alternates: { canonical: `/kittens/${kitten.slug}` },
+    openGraph: {
+      title,
+      description,
+      url: `/kittens/${kitten.slug}`,
+      images: kitten.images[0] ? [{ url: kitten.images[0] }] : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: kitten.images[0] ? [kitten.images[0]] : undefined,
+    },
+  };
+}
 
 export default async function KittenDetailPage({
   params,
@@ -28,8 +64,33 @@ export default async function KittenDetailPage({
     ["Litter trained", kitten.litter_trained ? "Yes" : "In progress"],
   ];
 
+  const productJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: `${kitten.name} — ${kitten.breed} kitten`,
+    description: kitten.description,
+    image: kitten.images,
+    brand: { "@type": "Brand", name: site.name },
+    offers: {
+      "@type": "Offer",
+      price: kitten.price,
+      priceCurrency: site.currency,
+      availability:
+        kitten.status === "available"
+          ? "https://schema.org/InStock"
+          : kitten.status === "reserved"
+            ? "https://schema.org/LimitedAvailability"
+            : "https://schema.org/SoldOut",
+      url: `${site.url}/kittens/${kitten.slug}`,
+    },
+  };
+
   return (
     <div className="mx-auto max-w-6xl px-4 sm:px-6 py-12 lg:py-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+      />
       <nav className="text-sm text-ink-400">
         <Link href="/kittens" className="hover:text-clay-600">
           Available Kittens
