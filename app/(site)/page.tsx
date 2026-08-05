@@ -17,8 +17,7 @@ const heroImages = [
   "https://images.unsplash.com/photo-1519052537078-e6302a4968d4?w=1920&q=75&fit=crop",
 ];
 
-const heroFramedImage =
-  "https://images.unsplash.com/photo-1595433707802-6b2626ef1c91?w=1600&q=75&fit=crop";
+const heroFramedImage = "/hero-cat.jpg";
 
 export default async function HomePage() {
   const kittens = await getKittens();
@@ -36,9 +35,11 @@ export default async function HomePage() {
     image: `${site.url}/og.png`,
     email: site.email,
     telephone: site.whatsapp,
-    sameAs: [site.facebook, site.instagram],
+    sameAs: [site.facebook],
+    openingHours: "Mo-Sa 09:00-18:00",
+    priceRange: "$$",
     description:
-      "Family-raised Bengal, Siamese, British Shorthair, and Maine Coon kittens: healthy, vaccinated, and socialized with love.",
+      "Family-raised Bengal kittens for sale: healthy, vaccinated, vet-checked, and socialized with love.",
   };
 
   return (
@@ -133,7 +134,7 @@ export default async function HomePage() {
             <div className="relative aspect-[4/3] overflow-hidden rounded-3xl shadow-lg ring-1 ring-cream-300/80 transition-transform duration-500 lg:rotate-2 lg:hover:rotate-0">
               <Image
                 src={heroFramedImage}
-                alt="A kitten relaxing at home"
+                alt="One of our rosetted Bengal cats"
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -268,8 +269,44 @@ export default async function HomePage() {
         </Reveal>
       </section>
 
+      {/* About the cattery (SEO copy) */}
+      <section className="border-t border-cream-300 bg-cream-100/60">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 py-14">
+          <Reveal>
+            <h2 className="font-display text-2xl sm:text-3xl font-semibold text-ink-900">
+              Your trusted home for Bengal kittens
+            </h2>
+            <p className="mt-4 leading-relaxed text-ink-500">
+              Bengal Kitten Haven is a small in-home cattery with Bengal
+              kittens for sale, raised in our living room rather than in
+              cages. Every kitten for adoption here is vet-checked,
+              vaccinated, dewormed, and socialized daily with children and
+              pets, and goes home with a written health guarantee.
+            </p>
+            <p className="mt-3 leading-relaxed text-ink-500">
+              Whether you're dreaming of a brown rosetted Bengal, a rare
+              silver or snow Bengal, or simply a healthy, confident,
+              well-socialized kitten, we'd love to help you find your new
+              best friend. Browse our{" "}
+              <Link href="/kittens" className="font-bold text-clay-600 hover:text-clay-700">
+                available kittens
+              </Link>
+              , read our{" "}
+              <Link href="/health-guarantee" className="font-bold text-clay-600 hover:text-clay-700">
+                health guarantee
+              </Link>
+              , or{" "}
+              <Link href="/contact" className="font-bold text-clay-600 hover:text-clay-700">
+                get in touch
+              </Link>{" "}
+              with any questions.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
       {/* CTA */}
-      <section className="mx-auto max-w-6xl px-4 sm:px-6 pb-20">
+      <section className="mx-auto max-w-6xl px-4 sm:px-6 pb-20 pt-16">
         <Reveal>
           <div className="relative overflow-hidden rounded-3xl bg-clay-500 px-8 py-12 text-center shadow-md sm:px-16">
             <span aria-hidden className="animate-float absolute left-8 top-6 text-3xl opacity-20">🐾</span>

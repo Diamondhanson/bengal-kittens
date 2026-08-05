@@ -18,8 +18,8 @@ export function Footer() {
             {site.name}
           </p>
           <p className="mt-3 text-sm text-ink-500 leading-relaxed">
-            Family-raised kittens, socialized from day one and ready to bring
-            warmth to your home.
+            Family-raised Bengal kittens for sale, socialized from day one and
+            ready to bring warmth to your home.
           </p>
         </div>
         <div>
@@ -58,7 +58,6 @@ export function Footer() {
           <ul className="mt-3 space-y-2 text-sm">
             <li><a className="text-ink-500 hover:text-clay-600" href={site.facebook} target="_blank" rel="noreferrer">Facebook</a></li>
             <li><a className="text-ink-500 hover:text-clay-600" href={site.whatsappLink} target="_blank" rel="noreferrer">WhatsApp</a></li>
-            <li><a className="text-ink-500 hover:text-clay-600" href={site.instagram} target="_blank" rel="noreferrer">Instagram</a></li>
           </ul>
         </div>
       </div>

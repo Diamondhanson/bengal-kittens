@@ -3,7 +3,10 @@ import { ContactForm } from "@/components/ContactForm";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: "Contact Us | Ask About Our Kittens",
+  description:
+    "Questions about a Bengal kitten for sale, booking a visit, or joining the waitlist? Message us on WhatsApp, email, or the contact form. We reply within 24 hours.",
+  alternates: { canonical: "/contact" },
 };
 
 export default function ContactPage() {
@@ -64,14 +67,6 @@ export default function ContactPage() {
                   className="font-semibold text-clay-600 hover:text-clay-700"
                 >
                   Facebook
-                </a>
-                <a
-                  href={site.instagram}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="font-semibold text-clay-600 hover:text-clay-700"
-                >
-                  Instagram
                 </a>
                 <a
                   href={site.whatsappLink}

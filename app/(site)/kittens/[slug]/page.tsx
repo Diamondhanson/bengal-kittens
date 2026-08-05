@@ -21,10 +21,10 @@ export async function generateMetadata({
   const kitten = await getKittenBySlug(slug);
   if (!kitten) return { title: "Kitten not found" };
 
-  const title = `${kitten.name} the ${kitten.breed} kitten`;
-  const description = `${kitten.name} is a ${formatAge(kitten.date_of_birth)} ${
+  const title = `${kitten.name} | ${kitten.breed} Kitten for Sale`;
+  const description = `Meet ${kitten.name}, a ${formatAge(kitten.date_of_birth)} ${
     kitten.breed
-  } kitten (${kitten.color}) looking for a loving home. ${formatPrice(kitten.price)}, vaccinated, vet-checked, and family-raised.`;
+  } kitten for sale (${kitten.color}). ${formatPrice(kitten.price)}, vaccinated, vet-checked, family-raised, and backed by our written health guarantee.`;
 
   return {
     title,
@@ -64,6 +64,26 @@ export default async function KittenDetailPage({
     ["Litter trained", kitten.litter_trained ? "Yes" : "In progress"],
   ];
 
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: site.url },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Available Kittens",
+        item: `${site.url}/kittens`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: kitten.name,
+        item: `${site.url}/kittens/${kitten.slug}`,
+      },
+    ],
+  };
+
   const productJsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -90,6 +110,10 @@ export default async function KittenDetailPage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <nav className="text-sm text-ink-400">
         <Link href="/kittens" className="hover:text-clay-600">

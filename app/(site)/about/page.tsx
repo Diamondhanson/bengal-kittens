@@ -3,7 +3,10 @@ import Image from "next/image";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "About Us",
+  title: "About Our In-Home Bengal Cattery",
+  description:
+    "We're a small family cattery raising Bengal kittens in our living room, never in cages. Genetically screened parents, early socialization with kids and dogs, and lifetime support for every adopter.",
+  alternates: { canonical: "/about" },
 };
 
 export default function AboutPage() {

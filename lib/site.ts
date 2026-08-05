@@ -12,7 +12,6 @@ export const site = {
   whatsappLink: "https://wa.me/13323184580",
   email: "bengalkittensavailable11@gmail.com",
   hours: "Mon–Sat, 9am–6pm",
-  instagram: "https://instagram.com/bengalkittens",
   facebook: "https://www.facebook.com/share/g/1EBSyQS7q4/?mibextid=wwXIfr",
 };
 

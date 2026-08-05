@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Health Guarantee & Policies",
+  title: "Kitten Health Guarantee & Adoption Policies",
+  description:
+    "Our written health guarantee for every kitten: vet checks, vaccinations, genetic screening of parents, a 2-year congenital guarantee, 72-hour vet check window, and a lifetime return promise.",
+  alternates: { canonical: "/health-guarantee" },
 };
 
 export default function HealthGuaranteePage() {

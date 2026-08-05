@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "FAQ",
+  title: "Kitten Adoption FAQ",
+  description:
+    "Answers to common questions about buying a kitten from us: how reserving works, when kittens go home, what's included, visits, delivery, and our lifetime return promise.",
+  alternates: { canonical: "/faq" },
 };
 
 const faqs = [
@@ -40,9 +43,23 @@ const faqs = [
   },
 ];
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: { "@type": "Answer", text: item.a },
+  })),
+};
+
 export default function FaqPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 sm:px-6 py-12 lg:py-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <h1 className="font-display text-4xl font-semibold text-ink-900">
         Frequently asked questions
       </h1>
