@@ -45,6 +45,17 @@ export interface Order {
   items?: OrderItem[];
 }
 
+export interface Review {
+  id: string;
+  name: string;
+  location: string;
+  rating: number;
+  message: string;
+  approved: boolean;
+  featured: boolean;
+  created_at: string;
+}
+
 export interface ContactMessage {
   id: string;
   name: string;

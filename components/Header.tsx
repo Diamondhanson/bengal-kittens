@@ -12,6 +12,7 @@ const links = [
   { href: "/kittens", label: "Available Kittens" },
   { href: "/about", label: "About Us" },
   { href: "/health-guarantee", label: "Health Guarantee" },
+  { href: "/reviews", label: "Reviews" },
   { href: "/faq", label: "FAQ" },
   { href: "/contact", label: "Contact" },
 ];

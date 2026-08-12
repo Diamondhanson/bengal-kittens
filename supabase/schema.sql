@@ -176,3 +176,29 @@ values
     '2026-06-25T16:45:00Z'
   )
 on conflict (id) do nothing;
+
+-- ---------------------------------------------------------------------------
+-- Visitor reviews (shown on the home page once approved in the dashboard)
+-- ---------------------------------------------------------------------------
+
+create table if not exists public.reviews (
+  id         uuid primary key default gen_random_uuid(),
+  name       text not null,
+  location   text not null default '',
+  rating     int not null check (rating between 1 and 5),
+  message    text not null,
+  approved   boolean not null default false,
+  featured   boolean not null default false,
+  created_at timestamptz not null default now()
+);
+
+alter table public.reviews enable row level security;
+
+grant select on public.reviews to anon, authenticated;
+grant all on public.reviews to service_role;
+
+drop policy if exists "Public can view approved reviews" on public.reviews;
+create policy "Public can view approved reviews"
+  on public.reviews for select
+  to anon, authenticated
+  using (approved = true);

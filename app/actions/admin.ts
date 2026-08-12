@@ -6,9 +6,11 @@ import { requireAdmin } from "@/lib/auth";
 import {
   createKitten,
   deleteKitten,
+  deleteReview,
   updateContactStatus,
   updateKitten,
   updateOrderStatus,
+  updateReview,
 } from "@/lib/data";
 import { createSupabaseAdminClient } from "@/lib/supabase/admin";
 import { isSupabaseConfigured } from "@/lib/supabase/config";
@@ -141,4 +143,30 @@ export async function setContactStatus(formData: FormData): Promise<void> {
   if (!["new", "replied"].includes(status)) return;
   await updateContactStatus(id, status);
   revalidatePath("/admin/contacts");
+}
+
+export async function setReviewApproval(formData: FormData): Promise<void> {
+  await requireAdmin();
+  const id = String(formData.get("id") ?? "");
+  const approved = formData.get("approved") === "true";
+  if (!isSupabaseConfigured() || !id) return;
+  await updateReview(id, { approved });
+  revalidatePath("/", "layout");
+}
+
+export async function setReviewFeatured(formData: FormData): Promise<void> {
+  await requireAdmin();
+  const id = String(formData.get("id") ?? "");
+  const featured = formData.get("featured") === "true";
+  if (!isSupabaseConfigured() || !id) return;
+  await updateReview(id, { featured });
+  revalidatePath("/", "layout");
+}
+
+export async function removeReview(formData: FormData): Promise<void> {
+  await requireAdmin();
+  const id = String(formData.get("id") ?? "");
+  if (!isSupabaseConfigured() || !id) return;
+  await deleteReview(id);
+  revalidatePath("/", "layout");
 }

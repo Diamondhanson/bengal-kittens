@@ -1,4 +1,4 @@
-import type { ContactMessage, Order } from "./types";
+import type { ContactMessage, Order, Review } from "./types";
 
 /**
  * Placeholder orders/contacts shown in the dashboard while Supabase is not
@@ -83,5 +83,41 @@ export const sampleContacts: ContactMessage[] = [
       "Is it possible to visit the kittens before placing a reservation? We're about an hour away.",
     status: "replied",
     created_at: "2026-07-25T18:05:00Z",
+  },
+];
+
+export const sampleReviews: Review[] = [
+  {
+    id: "30000000-0000-4000-8000-000000000001",
+    name: "The Ramirez family",
+    location: "Denver, CO",
+    rating: 5,
+    message:
+      "Our Bengal boy arrived confident, healthy, and impossibly sweet. You can tell these kittens grow up in a real home full of love.",
+    approved: true,
+    featured: true,
+    created_at: "2026-07-12T15:00:00Z",
+  },
+  {
+    id: "30000000-0000-4000-8000-000000000002",
+    name: "Priya S.",
+    location: "Austin, TX",
+    rating: 5,
+    message:
+      "The weekly photo updates while we waited were the highlight of our summer. Our kitten came home litter trained and purring.",
+    approved: true,
+    featured: false,
+    created_at: "2026-07-20T10:30:00Z",
+  },
+  {
+    id: "30000000-0000-4000-8000-000000000003",
+    name: "Mark & Ellie",
+    location: "Chicago, IL",
+    rating: 4,
+    message:
+      "Great communication from the first message to pickup day. Our vet was impressed with the health records that came with her.",
+    approved: true,
+    featured: false,
+    created_at: "2026-07-25T18:45:00Z",
   },
 ];

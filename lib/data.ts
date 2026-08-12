@@ -3,7 +3,7 @@ import { createClient } from "@supabase/supabase-js";
 import { createSupabaseAdminClient } from "./supabase/admin";
 import { isSupabaseConfigured } from "./supabase/config";
 import { sampleKittens } from "./sample-kittens";
-import { sampleContacts, sampleOrders } from "./sample-admin";
+import { sampleContacts, sampleOrders, sampleReviews } from "./sample-admin";
 import type {
   ContactMessage,
   ContactStatus,
@@ -11,6 +11,7 @@ import type {
   KittenInput,
   Order,
   OrderStatus,
+  Review,
 } from "./types";
 
 // ---------------------------------------------------------------------------
@@ -262,4 +263,68 @@ export async function updateContactStatus(
     .update({ status })
     .eq("id", id);
   if (error) throw new Error(`Failed to update message: ${error.message}`);
+}
+
+// ---------------------------------------------------------------------------
+// Reviews
+// ---------------------------------------------------------------------------
+
+export interface NewReview {
+  name: string;
+  location: string;
+  rating: number;
+  message: string;
+}
+
+/** Public: approved reviews only, featured ones first. */
+export async function getApprovedReviews(): Promise<Review[]> {
+  if (!isSupabaseConfigured()) return sampleReviews;
+  const supabase = createAnonClient();
+  const { data, error } = await supabase
+    .from("reviews")
+    .select("*")
+    .eq("approved", true)
+    .order("featured", { ascending: false })
+    .order("created_at", { ascending: false });
+  if (error) throw new Error(`Failed to load reviews: ${error.message}`);
+  return data as Review[];
+}
+
+/** Admin: everything, pending first so new submissions surface on top. */
+export async function getAllReviews(): Promise<Review[]> {
+  if (!isSupabaseConfigured()) return sampleReviews;
+  const supabase = createSupabaseAdminClient();
+  const { data, error } = await supabase
+    .from("reviews")
+    .select("*")
+    .order("approved", { ascending: true })
+    .order("featured", { ascending: false })
+    .order("created_at", { ascending: false });
+  if (error) throw new Error(`Failed to load reviews: ${error.message}`);
+  return data as Review[];
+}
+
+export async function createReview(review: NewReview): Promise<void> {
+  if (!isSupabaseConfigured()) {
+    console.log("[preview] Review received (not persisted):", review);
+    return;
+  }
+  const supabase = createSupabaseAdminClient();
+  const { error } = await supabase.from("reviews").insert(review);
+  if (error) throw new Error(`Failed to save review: ${error.message}`);
+}
+
+export async function updateReview(
+  id: string,
+  patch: Partial<Pick<Review, "approved" | "featured">>
+): Promise<void> {
+  const supabase = createSupabaseAdminClient();
+  const { error } = await supabase.from("reviews").update(patch).eq("id", id);
+  if (error) throw new Error(`Failed to update review: ${error.message}`);
+}
+
+export async function deleteReview(id: string): Promise<void> {
+  const supabase = createSupabaseAdminClient();
+  const { error } = await supabase.from("reviews").delete().eq("id", id);
+  if (error) throw new Error(`Failed to delete review: ${error.message}`);
 }

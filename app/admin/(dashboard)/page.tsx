@@ -1,22 +1,25 @@
 import Link from "next/link";
-import { getContacts, getKittens, getOrders } from "@/lib/data";
+import { getAllReviews, getContacts, getKittens, getOrders } from "@/lib/data";
 import { formatPrice } from "@/lib/site";
 import { formatDateTime } from "@/lib/utils";
 
 export default async function AdminOverviewPage() {
-  const [kittens, orders, contacts] = await Promise.all([
+  const [kittens, orders, contacts, reviews] = await Promise.all([
     getKittens(),
     getOrders(),
     getContacts(),
+    getAllReviews(),
   ]);
 
   const available = kittens.filter((k) => k.status === "available").length;
   const newOrders = orders.filter((o) => o.status === "new").length;
   const newMessages = contacts.filter((c) => c.status === "new").length;
+  const pendingReviews = reviews.filter((r) => !r.approved).length;
 
   const stats = [
     { label: "Kittens listed", value: kittens.length, sub: `${available} available`, href: "/admin/kittens" },
     { label: "Orders", value: orders.length, sub: `${newOrders} new`, href: "/admin/orders" },
+    { label: "Reviews", value: reviews.length, sub: `${pendingReviews} pending`, href: "/admin/reviews" },
     { label: "Messages", value: contacts.length, sub: `${newMessages} unread`, href: "/admin/contacts" },
   ];
 
@@ -34,7 +37,7 @@ export default async function AdminOverviewPage() {
         </Link>
       </div>
 
-      <div className="mt-8 grid gap-6 sm:grid-cols-3">
+      <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {stats.map((stat) => (
           <Link
             key={stat.label}

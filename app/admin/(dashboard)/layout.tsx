@@ -9,6 +9,7 @@ const nav = [
   { href: "/admin", label: "Overview", icon: "📊" },
   { href: "/admin/kittens", label: "Kittens", icon: "🐱" },
   { href: "/admin/orders", label: "Orders", icon: "🧾" },
+  { href: "/admin/reviews", label: "Reviews", icon: "⭐" },
   { href: "/admin/contacts", label: "Messages", icon: "✉️" },
 ];
 

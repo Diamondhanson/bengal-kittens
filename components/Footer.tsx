@@ -31,6 +31,7 @@ export function Footer() {
             <li><Link className="text-ink-500 hover:text-clay-600" href="/about">About Us</Link></li>
             <li><Link className="text-ink-500 hover:text-clay-600" href="/faq">FAQ</Link></li>
             <li><Link className="text-ink-500 hover:text-clay-600" href="/health-guarantee">Health Guarantee</Link></li>
+            <li><Link className="text-ink-500 hover:text-clay-600" href="/reviews">Reviews</Link></li>
           </ul>
         </div>
         <div>

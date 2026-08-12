@@ -3,7 +3,8 @@ import Link from "next/link";
 import { HeroSlideshow } from "@/components/HeroSlideshow";
 import { KittenCard } from "@/components/KittenCard";
 import { Reveal } from "@/components/Reveal";
-import { getKittens } from "@/lib/data";
+import { ReviewsSection } from "@/components/ReviewsSection";
+import { getApprovedReviews, getKittens } from "@/lib/data";
 import { site } from "@/lib/site";
 
 // Served from cache and refreshed in the background; admin edits bust it
@@ -20,7 +21,10 @@ const heroImages = [
 const heroFramedImage = "/hero-cat.jpg";
 
 export default async function HomePage() {
-  const kittens = await getKittens();
+  const [kittens, reviews] = await Promise.all([
+    getKittens(),
+    getApprovedReviews(),
+  ]);
   const available = kittens.filter((k) => k.status === "available");
   const breedCount = new Set(kittens.map((k) => k.breed)).size;
   const featured = kittens.filter((k) => k.featured && k.status === "available");
@@ -40,6 +44,15 @@ export default async function HomePage() {
     priceRange: "$$",
     description:
       "Family-raised Bengal kittens for sale: healthy, vaccinated, vet-checked, and socialized with love.",
+    ...(reviews.length > 0 && {
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: (
+          reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length
+        ).toFixed(1),
+        reviewCount: reviews.length,
+      },
+    }),
   };
 
   return (
@@ -255,19 +268,8 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Testimonial */}
-      <section className="mx-auto max-w-3xl px-4 sm:px-6 py-16 text-center">
-        <Reveal>
-          <p className="animate-float inline-block text-4xl">😻</p>
-          <blockquote className="mt-4 font-display text-2xl leading-relaxed text-ink-700">
-            “Our Bengal boy arrived confident, healthy, and impossibly sweet. You
-            can tell these kittens grow up in a real home full of love.”
-          </blockquote>
-          <p className="mt-4 text-sm font-bold uppercase tracking-wide text-ink-400">
-            The Ramirez family
-          </p>
-        </Reveal>
-      </section>
+      {/* Reviews */}
+      <ReviewsSection reviews={reviews} />
 
       {/* About the cattery (SEO copy) */}
       <section className="border-t border-cream-300 bg-cream-100/60">
