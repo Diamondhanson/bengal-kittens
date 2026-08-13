@@ -7,7 +7,7 @@ export const site = {
   tagline: "Loving kittens, raised at home",
   url: "https://bengalkittenhaven.com",
   currency: "USD",
-  phone: "(555) 123-4567",
+  phone: "+1 (332) 318-4580", // same number for calls and WhatsApp
   whatsapp: "+1 (332) 318-4580",
   whatsappLink: "https://wa.me/13323184580",
   email: "bengalkittensavailable11@gmail.com",

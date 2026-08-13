@@ -23,15 +23,23 @@ export default function ContactPage() {
           </p>
           <dl className="mt-8 space-y-5 text-sm">
             <div>
-              <dt className="font-bold uppercase tracking-wide text-ink-400">WhatsApp</dt>
-              <dd className="mt-1">
+              <dt className="font-bold uppercase tracking-wide text-ink-400">
+                Phone &amp; WhatsApp
+              </dt>
+              <dd className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1">
+                <a
+                  href="tel:+13323184580"
+                  className="font-semibold text-ink-700 hover:text-clay-600"
+                >
+                  {site.phone}
+                </a>
                 <a
                   href={site.whatsappLink}
                   target="_blank"
                   rel="noreferrer"
                   className="font-semibold text-moss-600 hover:text-moss-700"
                 >
-                  💬 {site.whatsapp}
+                  💬 Message on WhatsApp
                 </a>
               </dd>
             </div>
@@ -45,10 +53,6 @@ export default function ContactPage() {
                   {site.email}
                 </a>
               </dd>
-            </div>
-            <div>
-              <dt className="font-bold uppercase tracking-wide text-ink-400">Phone</dt>
-              <dd className="mt-1 text-ink-700">{site.phone}</dd>
             </div>
             <div>
               <dt className="font-bold uppercase tracking-wide text-ink-400">Visits by appointment</dt>

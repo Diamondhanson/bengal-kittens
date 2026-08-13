@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useCart } from "./CartProvider";
+import { track } from "@/lib/gtag";
 import type { Kitten } from "@/lib/types";
 
 export function AddToCartButton({
@@ -40,6 +41,11 @@ export function AddToCartButton({
       type="button"
       onClick={() => {
         if (!inCart) {
+          track("add_to_cart", {
+            currency: "USD",
+            value: kitten.price,
+            items: [{ item_name: kitten.name, item_category: kitten.breed }],
+          });
           addItem({
             id: kitten.id,
             slug: kitten.slug,

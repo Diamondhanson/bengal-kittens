@@ -40,8 +40,12 @@ export function Footer() {
           </p>
           <ul className="mt-3 space-y-2 text-sm text-ink-500">
             <li>
+              <a className="hover:text-clay-600" href="tel:+13323184580">
+                {site.phone}
+              </a>
+              <span className="text-ink-300"> · </span>
               <a className="hover:text-clay-600" href={site.whatsappLink} target="_blank" rel="noreferrer">
-                WhatsApp: {site.whatsapp}
+                WhatsApp
               </a>
             </li>
             <li>

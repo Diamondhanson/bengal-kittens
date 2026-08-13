@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Fraunces, Nunito } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@/components/Analytics";
 import { site } from "@/lib/site";
 
 const fraunces = Fraunces({
@@ -70,7 +71,10 @@ export default function RootLayout({
       lang="en"
       className={`${fraunces.variable} ${nunito.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }

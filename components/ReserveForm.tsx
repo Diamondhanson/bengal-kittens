@@ -66,7 +66,7 @@ export function ReserveForm() {
             <label htmlFor="phone" className="mb-1.5 block text-sm font-bold text-ink-700">
               Phone
             </label>
-            <input id="phone" name="phone" type="tel" className={inputClass} placeholder="(555) 123-4567" />
+            <input id="phone" name="phone" type="tel" className={inputClass} placeholder="Your phone number" />
           </div>
           <div>
             <label htmlFor="city" className="mb-1.5 block text-sm font-bold text-ink-700">

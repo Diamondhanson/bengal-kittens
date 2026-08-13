@@ -1,8 +1,9 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect } from "react";
 import { submitContact, type ContactFormState } from "@/app/actions/contact";
 import { SubmitButton } from "./SubmitButton";
+import { ADS_CONTACT_LABEL, track, trackAdsConversion } from "@/lib/gtag";
 
 const inputClass =
   "w-full rounded-xl border border-cream-300 bg-white px-4 py-3 text-ink-900 placeholder:text-ink-300 focus:border-clay-400 focus:outline-none focus:ring-2 focus:ring-clay-200";
@@ -12,6 +13,13 @@ export function ContactForm() {
     submitContact,
     {}
   );
+
+  useEffect(() => {
+    if (state.success) {
+      track("contact_submitted");
+      trackAdsConversion(ADS_CONTACT_LABEL);
+    }
+  }, [state.success]);
 
   if (state.success) {
     return (
@@ -48,7 +56,7 @@ export function ContactForm() {
           <label htmlFor="phone" className="mb-1.5 block text-sm font-bold text-ink-700">
             Phone (optional)
           </label>
-          <input id="phone" name="phone" type="tel" className={inputClass} placeholder="(555) 123-4567" />
+          <input id="phone" name="phone" type="tel" className={inputClass} placeholder="Your phone number" />
         </div>
         <div>
           <label htmlFor="subject" className="mb-1.5 block text-sm font-bold text-ink-700">

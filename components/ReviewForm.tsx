@@ -1,8 +1,9 @@
 "use client";
 
-import { useActionState, useState } from "react";
+import { useActionState, useEffect, useState } from "react";
 import { submitReview, type ReviewFormState } from "@/app/actions/reviews";
 import { SubmitButton } from "./SubmitButton";
+import { track } from "@/lib/gtag";
 
 const inputClass =
   "w-full rounded-xl border border-cream-300 bg-white px-4 py-3 text-ink-900 placeholder:text-ink-300 focus:border-clay-400 focus:outline-none focus:ring-2 focus:ring-clay-200";
@@ -15,6 +16,10 @@ export function ReviewForm() {
     submitReview,
     {}
   );
+
+  useEffect(() => {
+    if (state.success) track("review_submitted");
+  }, [state.success]);
 
   if (state.success) {
     return (

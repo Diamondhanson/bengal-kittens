@@ -107,7 +107,7 @@ export async function sendOrderNotification(order: NewOrder): Promise<void> {
          <p>We've received your reservation request and will get back to you
          within 24 hours to arrange the next steps.</p>
          <ul style="padding-left:20px;">${itemsHtml}</ul>
-         <p>Questions in the meantime? Just reply to this email or call us at ${site.phone}.</p>
+         <p>Questions in the meantime? Just reply to this email, or call / WhatsApp us at ${site.whatsapp}.</p>
          <p>Warm purrs,<br/>The ${site.name} family</p>`
       ),
     });

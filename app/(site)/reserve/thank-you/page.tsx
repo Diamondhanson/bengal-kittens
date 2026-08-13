@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ClearCart } from "@/components/ClearCart";
+import { ReservationComplete } from "@/components/ReservationComplete";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function ThankYouPage() {
   return (
     <div className="mx-auto max-w-2xl px-4 sm:px-6 py-20 text-center">
-      <ClearCart />
+      <ReservationComplete />
       <p className="text-6xl">🐾</p>
       <h1 className="mt-6 font-display text-4xl font-semibold text-ink-900">
         Reservation received!
@@ -21,7 +21,11 @@ export default function ThankYouPage() {
         steps. Keep an eye on your email (and your spam folder, just in case).
       </p>
       <p className="mt-3 text-ink-500">
-        Can't wait? Call us at <span className="font-bold">{site.phone}</span>.
+        Can't wait? Call or WhatsApp us at{" "}
+        <a href={site.whatsappLink} target="_blank" rel="noreferrer" className="font-bold text-moss-600 hover:text-moss-700">
+          {site.phone}
+        </a>
+        .
       </p>
       <div className="mt-8 flex flex-wrap justify-center gap-4">
         <Link
