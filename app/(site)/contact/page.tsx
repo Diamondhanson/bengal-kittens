@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import { ContactForm } from "@/components/ContactForm";
 import { site } from "@/lib/site";
 
+// Cap how long a CDN copy of this page can outlive a deploy. Without it
+// Next emits s-maxage=31536000 and stale contact details can linger.
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: "Contact Us | Ask About Our Kittens",
   description:

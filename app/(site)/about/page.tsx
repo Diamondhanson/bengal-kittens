@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { site } from "@/lib/site";
 
+// Cap how long a CDN copy of this page can outlive a deploy. Without it
+// Next emits s-maxage=31536000 and stale contact details can linger.
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: "About Our In-Home Bengal Cattery",
   description:

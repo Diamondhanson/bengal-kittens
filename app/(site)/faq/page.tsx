@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+// Cap how long a CDN copy of this page can outlive a deploy. Without it
+// Next emits s-maxage=31536000 and stale contact details can linger.
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: "Kitten Adoption FAQ",
   description:
