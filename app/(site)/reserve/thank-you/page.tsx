@@ -17,13 +17,22 @@ export default function ThankYouPage() {
       </h1>
       <p className="mt-4 text-lg leading-relaxed text-ink-500">
         Thank you! Your request is in our inbox. We'll get back to you within
-        24 hours to arrange a visit or video call and talk through the next
-        steps. Keep an eye on your email (and your spam folder, just in case).
+        24 hours to talk through the next steps. Keep an eye on your email (and
+        your spam folder, just in case).
+      </p>
+      <p className="mt-3 text-lg leading-relaxed text-ink-500">
+        You're welcome to come and meet your kitten in person. Visits are by
+        appointment and there is a small visitation fee, so just let us know
+        when you'd like to come and we'll set it up.
       </p>
       <p className="mt-3 text-ink-500">
-        Can't wait? Call or WhatsApp us at{" "}
-        <a href={site.whatsappLink} target="_blank" rel="noreferrer" className="font-bold text-moss-600 hover:text-moss-700">
+        Can't wait? Text us at{" "}
+        <a href="sms:+13323184580" className="font-bold text-moss-600 hover:text-moss-700">
           {site.phone}
+        </a>{" "}
+        or message us on{" "}
+        <a href={site.whatsappLink} target="_blank" rel="noreferrer" className="font-bold text-moss-600 hover:text-moss-700">
+          WhatsApp
         </a>
         .
       </p>

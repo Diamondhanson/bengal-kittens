@@ -24,11 +24,11 @@ export default function ContactPage() {
           <dl className="mt-8 space-y-5 text-sm">
             <div>
               <dt className="font-bold uppercase tracking-wide text-ink-400">
-                Phone &amp; WhatsApp
+                Text &amp; WhatsApp
               </dt>
               <dd className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1">
                 <a
-                  href="tel:+13323184580"
+                  href="sms:+13323184580"
                   className="font-semibold text-ink-700 hover:text-clay-600"
                 >
                   {site.phone}

@@ -31,8 +31,8 @@ no code changes.
    <https://resend.com/api-keys> → `RESEND_API_KEY`.
 2. That's it for testing: with the default sandbox sender
    (`onboarding@resend.dev`), Resend delivers **only to your own account
-   email** — so sign up with the same address as `ADMIN_EMAIL` and order/contact
-   notifications will land in your inbox right away.
+   email** — so sign up with the same address as `NOTIFICATION_EMAIL` and
+   order/contact notifications will land in your inbox right away.
 3. Later (recommended before launch): verify your own domain under
    **Domains** in Resend, then change `RESEND_FROM_EMAIL` to something like
    `Bengal Kittens <hello@yourdomain.com>`. That removes the sandbox limits and
@@ -46,7 +46,8 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJ...
 SUPABASE_SERVICE_ROLE_KEY=eyJ...
 RESEND_API_KEY=re_...
 RESEND_FROM_EMAIL=Bengal Kittens <onboarding@resend.dev>
-ADMIN_EMAIL=diamondhanson6@gmail.com
+NOTIFICATION_EMAIL=bengalkittenhaven@gmail.com
+ADMIN_EMAIL=bengalkittenhaven@gmail.com
 ```
 
 Restart the dev server (`npm run dev`). Done — the catalog now reads from
@@ -58,7 +59,7 @@ real Supabase login, and photo uploads go to Supabase Storage.
 | | Preview mode (no keys) | Live mode (keys filled in) |
 |---|---|---|
 | Catalog | Built-in sample kittens | `kittens` table in Supabase |
-| Orders / contact forms | Accepted, shown as success, logged to the server console only | Saved to Supabase **and** emailed to `ADMIN_EMAIL` |
+| Orders / contact forms | Accepted, shown as success, logged to the server console only | Saved to Supabase **and** emailed to `NOTIFICATION_EMAIL` |
 | Dashboard login | Any email + `ADMIN_PREVIEW_PASSWORD` (default `preview`) | Supabase email/password, restricted to `ADMIN_EMAIL` |
 | Adding/editing kittens | Disabled (friendly error) | Full CRUD + photo upload |
 

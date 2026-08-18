@@ -9,8 +9,16 @@ function getResend(): Resend | null {
   return new Resend(process.env.RESEND_API_KEY);
 }
 
+/**
+ * Inbox that receives order + contact notifications. Separate from ADMIN_EMAIL
+ * (the dashboard login) so the two can be moved independently.
+ */
 function adminEmail(): string {
-  return process.env.ADMIN_EMAIL || "bengalkittensavailable11@gmail.com";
+  return (
+    process.env.NOTIFICATION_EMAIL ||
+    process.env.ADMIN_EMAIL ||
+    "bengalkittenhaven@gmail.com"
+  );
 }
 
 function fromEmail(): string {

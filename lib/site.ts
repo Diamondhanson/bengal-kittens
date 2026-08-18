@@ -10,7 +10,7 @@ export const site = {
   phone: "+1 (332) 318-4580", // same number for calls and WhatsApp
   whatsapp: "+1 (332) 318-4580",
   whatsappLink: "https://wa.me/13323184580",
-  email: "bengalkittensavailable11@gmail.com",
+  email: "bengalkittenhaven@gmail.com",
   hours: "Mon–Sat, 9am–6pm",
   facebook: "https://www.facebook.com/share/g/1EBSyQS7q4/?mibextid=wwXIfr",
 };
