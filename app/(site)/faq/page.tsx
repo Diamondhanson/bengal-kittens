@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "How does reserving a kitten work?",
-    a: "Add your favorite kitten to your basket and submit the reservation form. It's free and non-binding. We receive it instantly and reply within 24 hours to talk next steps, answer questions, and arrange a visit or video call. Payment is only discussed after we've spoken.",
+    a: "Add your favorite kitten to your basket and submit the reservation form. It's free and non-binding. We receive it instantly and reply within 24 hours to talk next steps, answer questions, and arrange a visit. Payment is only discussed after we've spoken.",
   },
   {
     q: "When can kittens go to their new homes?",
@@ -27,7 +27,7 @@ const faqs = [
   },
   {
     q: "Can we visit before deciding?",
-    a: "Absolutely, we encourage it! Visits are by appointment so mom cats aren't overwhelmed. If you're far away, we're happy to do a live video call and send weekly photo updates.",
+    a: "Absolutely, we encourage it! Visits are by appointment and carry a small visitation fee, so mom cats aren't overwhelmed. If you're far away, we're happy to send weekly photo updates.",
   },
   {
     q: "Do you ship kittens?",

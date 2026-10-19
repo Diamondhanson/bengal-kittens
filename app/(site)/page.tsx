@@ -249,7 +249,7 @@ export default async function HomePage() {
               {
                 step: "3",
                 title: "We arrange the rest",
-                text: "We reply within 24 hours to plan a visit or video call, answer questions, and arrange payment & pickup.",
+                text: "We reply within 24 hours to plan your visit, answer questions, and arrange payment & pickup.",
               },
             ].map((item, i) => (
               <Reveal key={item.step} delay={i * 130}>
