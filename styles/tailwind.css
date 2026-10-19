@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+/* Source CSS for the Tailwind CLI. Compiled to app/globals.css by
+   `npm run css`; app/globals.css is generated, do not edit it. */
+@source "../app";
+@source "../components";
+@source "../lib";
+
 @theme {
   /* Warm, calm palette: cream backgrounds, clay accents, moss greens, cocoa text */
   --color-cream-50: #fdfbf7;

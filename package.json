@@ -6,10 +6,12 @@
     "node": "20.x"
   },
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "npm run css && concurrently -k -n css,next \"npm:css:watch\" \"next dev\"",
+    "build": "npm run css -- --minify && next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "css": "tailwindcss -i styles/tailwind.css -o app/globals.css",
+    "css:watch": "tailwindcss -i styles/tailwind.css -o app/globals.css --watch"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.3",
@@ -21,10 +23,11 @@
     "server-only": "^0.0.1"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4",
+    "@tailwindcss/cli": "^4.3.3",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "concurrently": "^10.0.6",
     "eslint": "^9",
     "eslint-config-next": "16.2.12",
     "tailwindcss": "^4",
